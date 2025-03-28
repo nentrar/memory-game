@@ -11,8 +11,10 @@ def tick(args)
   end
 end
 
+WORDS = LEVEL_ONE
+
 def initialize_game(args)
-  words = WORDS.shuffle.flatten
+  words = WORDS.shuffle.first(10).flatten
   
   args.state.cards = words.each_with_index.map do |word, i|
     { id: i, word: word, matched: false, x: nil, y: nil }
