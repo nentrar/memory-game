@@ -88,9 +88,7 @@ LEVEL_ONE = [
   ['necktie', 'corbata'],
   ['vest', 'chaleco'],
   ['scarf', 'bufanda'],
-  ['clothing', 'ropa']
-]
-LEVEL_TWO = [
+  ['clothing', 'ropa'],
   ['red', 'rojo'],
   ['green', 'verde'],
   ['light blue', 'azul claro'],
@@ -155,9 +153,7 @@ LEVEL_TWO = [
   ['manager', 'gerente'],
   ['reporter', 'reportero'],
   ['actor', 'actor'],
-  ['job', 'trabajo']
-]
-LEVEL_THREE = [
+  ['job', 'trabajo'],
   ['religion', 'religión'],
   ['heaven', 'cielo'],
   ['hell', 'infierno'],
