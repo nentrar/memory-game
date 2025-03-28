@@ -1,3 +1,5 @@
+require 'app/words.rb'
+
 def tick(args)
   args.state.active_scene ||= 'menu'
 
@@ -8,19 +10,6 @@ def tick(args)
     render_game(args)
   end
 end
-
-WORDS = [
-  ['the band', 'la banda'],
-  ['the book', 'el libro'],
-  ['the cat', 'el gato'],
-  ['the dog', 'el perro'],
-  ['the house', 'la casa'],
-  ['the car', 'el coche'],
-  ['the tree', 'el árbol'],
-  ['the sun', 'el sol'],
-  ['the water', 'el agua'],
-  ['the school', 'la escuela']
-]
 
 def initialize_game(args)
   words = WORDS.shuffle.flatten
