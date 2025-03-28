@@ -1,5 +1,12 @@
 def tick(args)
-  render_menu(args)
+  args.state.active_scene ||= 'menu'
+
+  case args.state.active_scene
+  when 'menu'
+    render_menu(args)
+  when 'game'
+    render_game(args)
+  end
 end
 
 def initialize_game(args)
@@ -139,6 +146,7 @@ def assign_dimensions(args)
 end
 
 def render_game(args)
+  return unless args.state.active_scene == 'game'
   args.state.init ||= false
   initialize_game(args) unless args.state.init
   render_board(args)
@@ -149,6 +157,7 @@ def render_game(args)
 end
 
 def render_menu(args)
+  return unless args.state.active_scene == 'menu'
   args.outputs.solids << {
     x: 0,
     y: 0,
@@ -175,6 +184,7 @@ def render_menu(args)
   if args.inputs.mouse.click && args.inputs.mouse.point.inside_rect?([550, 350, 150,50])
     args.outputs.solids.clear
     args.outputs.labels.clear
+    args.state.active_scene = 'game'
     render_game(args)
   end
 
