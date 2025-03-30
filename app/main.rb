@@ -40,7 +40,20 @@ def render_board(args)
             end
     
     args.outputs.solids << [card[:x], card[:y], 200, 80, *color]
-    args.outputs.labels << [card[:x] + 100, card[:y] + 40, card[:word], 5, 1, 0, 0, 0]
+    
+    max_character_length = 12
+    wrapped_text = String.wrapped_lines(card[:word], max_character_length)
+    
+    wrapped_text.each_with_index do |line, index|
+      args.outputs.labels << {
+        x: card[:x] + 100, 
+        y: card[:y] + 60 - (index * 25), 
+        text: line,
+        size_enum: 5,
+        alignment_enum: 1, 
+        r: 0, g: 0, b: 0
+      }
+    end
   end
 end
 
