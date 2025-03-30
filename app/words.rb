@@ -1,4 +1,4 @@
-LEVEL_ONE = [
+WORDS = [
   ['cat', 'gato'],
   ['fish', 'pescado'],
   ['bird', 'pájaro'],
