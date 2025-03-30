@@ -7,11 +7,13 @@ def tick(args)
   when 'menu'
     render_menu(args)
   when 'game'
+    args.state.boss_life ||= 100
+    args.state.player_life ||= 10
     render_game(args)
   end
 end
 
-def initialize_game(args)
+def initialize_card_set(args)
   srand(Time.now.to_i + rand(1000))
   args.state.words = WORDS.shuffle.first(10).flatten
   
@@ -22,8 +24,6 @@ def initialize_game(args)
   assign_dimensions(args)
 
   args.state.selected_cards = []
-  args.state.score = 0
-  args.state.player_life = 3
   args.state.init = true
 end
 
@@ -79,7 +79,7 @@ def check_match(args)
   
   if pair
     card1[:matched] = card2[:matched] = true
-    args.state.score += 1
+    args.state.boss_life -= 1
   else
     card1[:flash_red] = card2[:flash_red] = true
     args.state.player_life -= 1
@@ -96,13 +96,17 @@ def handle_match_timer(args)
 end
 
 def render_ui(args)
-  args.outputs.labels << [10, 700, "Score: #{args.state.score}", 15, 0, 0, 0, 0, 255]
-  args.outputs.labels << [1100, 700, "Life: #{args.state.player_life}", 15, 0, 0, 0, 0, 255]
+  args.outputs.labels << [10, 700, "Boss HP: #{args.state.boss_life}", 15, 0, 0, 0, 0, 255]
+  args.outputs.labels << [950, 700, "Player HP: #{args.state.player_life}", 15, 0, 0, 0, 0, 255]
 
   if args.state.cards.all? { |c| c[:matched] }
-    args.outputs.labels << [640, 700, "You Win!", 15, 1, 0, 0, 0]
-    args.outputs.labels << [640, 40, "Press Space to restart.", 5, 1, 0, 0, 0]
-    args.state.restart = true
+    if args.state.boss_life > 0
+      next_round(args)
+    else
+      args.outputs.labels << [640, 700, "You Win!", 15, 1, 0, 0, 0]
+      args.outputs.labels << [640, 40, "Press Space to restart.", 5, 1, 0, 0, 0]
+      args.state.restart = true
+    end
   elsif args.state.player_life == 0
     args.outputs.labels << [640, 700, "You Lose!", 15, 1, 0, 0, 0]
     args.outputs.labels << [640, 40, "Press Space to restart.", 5, 1, 0, 0, 0]
@@ -137,7 +141,7 @@ end
 def render_game(args)
   return unless args.state.active_scene == 'game'
   args.state.init ||= false
-  initialize_game(args) unless args.state.init
+  initialize_card_set(args) unless args.state.init
   render_board(args)
   handle_input(args)
   check_match(args)
@@ -154,4 +158,9 @@ def render_menu(args)
   if args.inputs.mouse.click && args.inputs.mouse.point.inside_rect?([550, 350, 150, 50])
     args.state.active_scene = 'game'
   end
+end
+
+def next_round(args)
+  args.state.selected_cards.clear
+  args.state.init = false
 end
