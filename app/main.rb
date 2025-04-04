@@ -15,8 +15,11 @@ end
 
 def initialize_card_set(args)
   srand(Time.now.to_i + rand(1000))
-  args.state.words = WORDS.shuffle.first(10).flatten
-  
+
+  args.state.words = DICTIONARY.random_entries(10).map do |entry|
+    [entry[:en], entry[:es]]
+  end.flatten
+
   args.state.cards = args.state.words.each_with_index.map do |word, i|
     { id: i, word: word, matched: false, x: nil, y: nil }
   end
@@ -75,8 +78,12 @@ def check_match(args)
   return unless args.state.selected_cards.size == 2
   
   card1, card2 = args.state.selected_cards
-  pair = WORDS.find { |eng, spa| (eng == card1[:word] && spa == card2[:word]) || (spa == card1[:word] && eng == card2[:word]) }
   
+  pair = DICTIONARY.entries.find do |entry|
+    (entry[:en] == card1[:word] && entry[:es] == card2[:word]) ||
+    (entry[:es] == card1[:word] && entry[:en] == card2[:word])
+  end
+
   if pair
     card1[:matched] = card2[:matched] = true
     args.state.boss_life -= 1
