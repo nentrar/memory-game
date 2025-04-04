@@ -1,714 +1,744 @@
-WORDS = [
-  ['cat', 'gato'],
-  ['fish', 'pescado'],
-  ['bird', 'pájaro'],
-  ['cow', 'vaca'],
-  ['sheep', 'oveja'],
-  ['goat', 'cabra'],
-  ['pig', 'cerdo'],
-  ['mouse', 'ratón'],
-  ['rat', 'rata'],
-  ['horse', 'caballo'],
-  ['wing', 'ala'],
-  ['animal', 'animal'],
-  ['train', 'entrenar'],
-  ['aeroplane', 'avión'],
-  ['car', 'automóvil'],
-  ['truck', 'camión'],
-  ['bicycle', 'bicicleta'],
-  ['motorcycle', 'motocicleta'],
-  ['bus', 'autobús'],
-  ['boat', 'barco'],
-  ['ship', 'enviar'],
-  ['tire', 'neumático'],
-  ['gasoline', 'gasolina'],
-  ['engine', 'motor'],
-  ['train ticket', 'boleto de tren'],
-  ['transportation', 'transportación'],
-  ['city', 'ciudad'],
-  ['house', 'casa'],
-  ['apartment', 'apartamento'],
-  ['street/road', 'calle / carretera'],
-  ['airport', 'aeropuerto'],
-  ['train station', 'estación de tren'],
-  ['bridge', 'puente'],
-  ['hotel', 'hotel'],
-  ['restaurant', 'restaurante'],
-  ['farm', 'granja'],
-  ['court', 'la Corte'],
-  ['school', 'colegio'],
-  ['office', 'oficina'],
-  ['room', 'cuarto'],
-  ['town', 'ciudad'],
-  ['university', 'universidad'],
-  ['club', 'club'],
-  ['bar', 'bar'],
-  ['park', 'parque'],
-  ['camp', 'acampar'],
-  ['store/shop', 'tienda'],
-  ['theater', 'el teatro'],
-  ['library', 'biblioteca'],
-  ['hospital', 'hospital'],
-  ['temple', 'templo'],
-  ['church', 'Iglesia'],
-  ['market', 'mercado'],
-  ['country', 'país'],
-  ['nation', 'nación'],
-  ['state', 'estado'],
-  ['province', 'provincia'],
-  ['district', 'distrito'],
-  ['building', 'edificio'],
-  ['ground', 'suelo'],
-  ['outer space', 'espacio exterior'],
-  ['bank', 'banco'],
-  ['location', 'localización'],
-  ['United States of America', 'Estados Unidos de America'],
-  ['Australia', 'Australia'],
-  ['Thailand', 'Tailandia'],
-  ['China', 'China'],
-  ['United Kingdom', 'Reino Unido'],
-  ['England', 'Inglaterra'],
-  ['Spain', 'España'],
-  ['Germany', 'Alemania'],
-  ['France', 'Francia'],
-  ['Middle East', 'medio Este'],
-  ['hat', 'sombrero'],
-  ['dress', 'vestido'],
-  ['suit', 'traje'],
-  ['skirt', 'falda'],
-  ['shirt', 'camisa'],
-  ['T-shirt', 'Camiseta'],
-  ['pants', 'pantalones'],
-  ['shoes', 'Zapatos'],
-  ['pocket', 'bolsillo'],
-  ['coat', 'capa'],
-  ['stain', 'manchar'],
-  ['socks', 'calcetines'],
-  ['gloves', 'guantes'],
-  ['necktie', 'corbata'],
-  ['vest', 'chaleco'],
-  ['scarf', 'bufanda'],
-  ['clothing', 'ropa'],
-  ['red', 'rojo'],
-  ['green', 'verde'],
-  ['light blue', 'azul claro'],
-  ['dark blue', 'azul oscuro'],
-  ['yellow', 'amarillo'],
-  ['brown', 'marrón'],
-  ['pink', 'Rosa'],
-  ['purple', 'morado'],
-  ['silver', 'plata'],
-  ['gold', 'oro'],
-  ['orange', 'naranja'],
-  ['black', 'negro'],
-  ['white', 'blanco'],
-  ['gray', 'gris'],
-  ['colour', 'color'],
-  ['son*', 'hijo*'],
-  ['daughter*', 'hija*'],
-  ['mother', 'madre'],
-  ['father', 'padre'],
-  ['parents', 'madre padre - padre'],
-  ['baby', 'bebé'],
-  ['man', 'hombre'],
-  ['woman', 'mujer'],
-  ['brother*', 'hermano*'],
-  ['sister*', 'hermana*'],
-  ['family', 'familia'],
-  ['grandfather', 'abuelo'],
-  ['grandmother', 'abuela'],
-  ['husband*', 'esposo*'],
-  ['wife*', 'esposa*'],
-  ['king', 'Rey'],
-  ['queen', 'reina'],
-  ['president', 'presidente'],
-  ['neighbor', 'vecino'],
-  ['boy', 'chico'],
-  ['girl', 'muchacha'],
-  ['child boy', 'muchachos niño'],
-  ['child girl', 'Chica niño'],
-  ['adult man', 'hombre adulto'],
-  ['adult woman', 'mujer adulta'],
-  ['human', 'humano'],
-  ['friend', 'amigo'],
-  ['victim', 'víctima'],
-  ['player', 'jugador'],
-  ['fan', 'abanico'],
-  ['crowd', 'multitud'],
-  ['person', 'la persona'],
-  ['Teacher', 'maestro'],
-  ['student', 'estudiante'],
-  ['lawyer', 'abogado'],
-  ['doctor', 'doctor'],
-  ['patient', 'paciente'],
-  ['waiter', 'camarero'],
-  ['secretary', 'secretario'],
-  ['priest', 'sacerdote'],
-  ['police', 'policía'],
-  ['army', 'ejército'],
-  ['soldier', 'soldado'],
-  ['artist', 'artista'],
-  ['engineer', 'ingeniero'],
-  ['author', 'autor'],
-  ['manager', 'gerente'],
-  ['reporter', 'reportero'],
-  ['actor', 'actor'],
-  ['job', 'trabajo'],
-  ['religion', 'religión'],
-  ['heaven', 'cielo'],
-  ['hell', 'infierno'],
-  ['god', 'Dios'],
-  ['devil', 'diablo'],
-  ['angel', 'ángel'],
-  ['fairy', 'hada'],
-  ['spirit', 'espíritu'],
-  ['demon', 'demonio'],
-  ['death', 'muerte'],
-  ['medicine', 'medicina'],
-  ['money', 'dinero'],
-  ['dollar', 'dólar'],
-  ['bill', 'cuenta'],
-  ['marriage*', 'matrimonio*'],
-  ['wedding*', 'boda*'],
-  ['team', 'equipo'],
-  ['ethnicity', 'etnicidad'],
-  ['sexual intercourse', 'relaciones sexuales'],
-  ['gender', 'género'],
-  ['murder', 'asesinato'],
-  ['prison', 'prisión'],
-  ['technology', 'tecnología'],
-  ['energy', 'energía'],
-  ['war', 'guerra'],
-  ['peace', 'paz'],
-  ['attack', 'ataque'],
-  ['democracy', 'democracia'],
-  ['capitalism', 'capitalismo'],
-  ['socialism', 'socialismo'],
-  ['communism', 'comunismo'],
-  ['dictator', 'dictador'],
-  ['election', 'elección'],
-  ['magazine', 'revista'],
-  ['newspaper', 'periódico'],
-  ['poison', 'veneno'],
-  ['gun', 'pistola'],
-  ['sport', 'deporte'],
-  ['sport race', 'carrera deportiva'],
-  ['exercise', 'ejercicio'],
-  ['ball', 'bola'],
-  ['game', 'juego'],
-  ['price', 'precio'],
-  ['contract', 'contrato'],
-  ['drug', 'droga'],
-  ['sign', 'señal'],
-  ['science', 'ciencia'],
-  ['God', 'Dios'],
-  ['band', 'banda'],
-  ['song', 'canción'],
-  ['musical instrument', 'instrumento musical'],
-  ['music', 'música'],
-  ['painting', 'cuadro'],
-  ['photography', 'fotografía'],
-  ['movie', 'película'],
-  ['art', 'arte'],
-  ['coffee', 'café'],
-  ['tea', 'té'],
-  ['wine', 'Vino'],
-  ['beer', 'cerveza'],
-  ['juice', 'jugo'],
-  ['water', 'agua'],
-  ['milk', 'leche'],
-  ['beverage', 'bebida'],
-  ['egg', 'huevo'],
-  ['cheese', 'queso'],
-  ['bread', 'pan de molde'],
-  ['soup', 'sopa'],
-  ['cake', 'pastel'],
-  ['chicken', 'pollo'],
-  ['pork', 'cerdo'],
-  ['beef', 'carne de vaca'],
-  ['apple', 'manzana'],
-  ['banana', 'plátano'],
-  ['orange', 'naranja'],
-  ['lemon', 'limón'],
-  ['corn', 'maíz'],
-  ['rice', 'arroz'],
-  ['oil', 'aceite'],
-  ['seed', 'semilla'],
-  ['knife', 'cuchillo'],
-  ['spoon', 'cuchara'],
-  ['fork', 'tenedor'],
-  ['plate', 'plato'],
-  ['cup', 'taza'],
-  ['breakfast', 'desayuno'],
-  ['lunch', 'almuerzo'],
-  ['dinner', 'cena'],
-  ['sugar', 'azúcar'],
-  ['salt', 'sal'],
-  ['bottle', 'botella'],
-  ['food', 'comida'],
-  ['table', 'mesa'],
-  ['chair', 'silla'],
-  ['bed', 'cama'],
-  ['dream', 'sueña'],
-  ['window', 'ventana'],
-  ['door', 'puerta'],
-  ['bedroom', 'dormitorio'],
-  ['kitchen', 'cocina'],
-  ['bathroom', 'baño'],
-  ['pencil', 'lápiz'],
-  ['pen', 'pluma'],
-  ['photograph', 'fotografía'],
-  ['soap', 'jabón'],
-  ['book', 'libro'],
-  ['page', 'página'],
-  ['key', 'clave'],
-  ['paint', 'pintura'],
-  ['letter', 'carta'],
-  ['note', 'Nota'],
-  ['wall', 'pared'],
-  ['brick', 'ladrillo'],
-  ['tile', 'azulejo'],
-  ['wood', 'madera'],
-  ['concrete', 'hormigón'],
-  ['paper', 'papel'],
-  ['floor', 'planta'],
-  ['ceiling', 'techo'],
-  ['roof', 'techo'],
-  ['pool', 'piscina'],
-  ['lock', 'bloquear'],
-  ['telephone', 'teléfono'],
-  ['garden', 'jardín'],
-  ['yard', 'yarda'],
-  ['needle', 'aguja'],
-  ['bag', 'bolso'],
-  ['box', 'encajonar'],
-  ['gift', 'regalo'],
-  ['card', 'tarjeta'],
-  ['ring', 'anillo'],
-  ['tool', 'herramienta'],
-  ['clock', 'reloj'],
-  ['lamp', 'lámpara'],
-  ['fan', 'abanico'],
-  ['cell phone', 'Teléfono móvil'],
-  ['network', 'la red'],
-  ['computer', 'computadora'],
-  ['computer program', 'programa de computadora'],
-  ['laptop', 'computadora portátil'],
-  ['screen', 'pantalla'],
-  ['camera', 'camara fotografica'],
-  ['television', 'televisión'],
-  ['internet', 'Internet'],
-  ['download', 'descargar'],
-  ['install', 'instalar'],
-  ['wifi', 'Wi-Fi'],
-  ['radio', 'radio'],
-  ['head', 'cabeza'],
-  ['fur', 'pelaje'],
-  ['neck', 'cuello'],
-  ['face', 'cara'],
-  ['beard', 'barba'],
-  ['hair', 'cabello'],
-  ['eye', 'ojo'],
-  ['mouth', 'boca'],
-  ['lips', 'labios'],
-  ['nose', 'nariz'],
-  ['tooth', 'diente'],
-  ['ear', 'oreja'],
-  ['teardrop', 'lágrima'],
-  ['tongue', 'lengua'],
-  ['back', 'atrás'],
-  ['toe', 'dedo del pie'],
-  ['finger', 'dedo'],
-  ['foot', 'pie'],
-  ['hand', 'mano'],
-  ['leg', 'pierna'],
-  ['arm', 'brazo'],
-  ['shoulder', 'hombro'],
-  ['heart', 'corazón'],
-  ['blood', 'sangre'],
-  ['brain', 'cerebro'],
-  ['knee', 'rodilla'],
-  ['sweat', 'sudor'],
-  ['disease', 'enfermedad'],
-  ['bone', 'hueso'],
-  ['voice', 'voz'],
-  ['skin', 'piel'],
-  ['fingernail', 'uña'],
-  ['eyebrow', 'ceja'],
-  ['eyelash', 'pestaña'],
-  ['corpse', 'cadáver'],
-  ['human body', 'cuerpo humano'],
-  ['sea*', 'mar*'],
-  ['ocean*', 'océano*'],
-  ['river', 'río'],
-  ['mountain', 'montaña'],
-  ['rain', 'lluvia'],
-  ['snow', 'nieve'],
-  ['tree', 'árbol'],
-  ['sun', 'sol'],
-  ['moon', 'Luna'],
-  ['world', 'mundo'],
-  ['Earth', 'Tierra'],
-  ['forest', 'bosque'],
-  ['sky', 'cielo'],
-  ['plant', 'planta'],
-  ['wind', 'viento'],
-  ['soil/earth', 'suelo / tierra'],
-  ['flower', 'flor'],
-  ['valley', 'Valle'],
-  ['root', 'raíz'],
-  ['lake', 'lago'],
-  ['star', 'estrella'],
-  ['grass', 'césped'],
-  ['leaf', 'hoja'],
-  ['air', 'aire'],
-  ['sand', 'arena'],
-  ['beach', 'playa'],
-  ['wave', 'ola'],
-  ['fire', 'fuego'],
-  ['ice', 'hielo'],
-  ['island', 'isla'],
-  ['hill', 'colina'],
-  ['heat', 'calor'],
-  ['north', 'norte'],
-  ['south', 'sur'],
-  ['east', 'este'],
-  ['west', 'Oeste'],
-  ['northeast', 'nordeste'],
-  ['northwest', 'noroeste'],
-  ['southeast', 'sudeste'],
-  ['southwest', 'suroeste'],
-  ['north pole', 'Polo Norte'],
-  ['south pole', 'Polo Sur'],
-  ['nature', 'naturaleza'],
-  ['glass', 'vaso'],
-  ['metal', 'metal'],
-  ['plastic', 'el plastico'],
-  ['wood', 'madera'],
-  ['stone', 'piedra'],
-  ['diamond', 'diamante'],
-  ['clay', 'arcilla'],
-  ['dust', 'polvo'],
-  ['gold', 'oro'],
-  ['copper', 'cobre'],
-  ['silver', 'plata'],
-  ['material', 'material'],
-  ['meter', 'metro'],
-  ['centimeter', 'centímetro'],
-  ['kilogram', 'kilogramo'],
-  ['inch', 'pulgada'],
-  ['foot', 'pie'],
-  ['pound', 'libra'],
-  ['half', 'mitad'],
-  ['circle', 'círculo'],
-  ['square', 'cuadrado'],
-  ['temperature', 'la temperatura'],
-  ['date', 'fecha'],
-  ['weight', 'peso'],
-  ['edge', 'borde'],
-  ['corner', 'esquina'],
-  ['map', 'mapa'],
-  ['dot', 'punto'],
-  ['consonant', 'consonante'],
-  ['vowel', 'vocal'],
-  ['light', 'luz'],
-  ['sound', 'sonar'],
-  ['yes', 'sí'],
-  ['no', 'no'],
-  ['piece', 'pieza'],
-  ['pain', 'dolor'],
-  ['injury', 'lesión'],
-  ['hole', 'agujero'],
-  ['image', 'imagen'],
-  ['pattern', 'patrón'],
-  ['noun', 'sustantivo'],
-  ['verb', 'verbo'],
-  ['adjective', 'adjetivo'],
-  ['top', 'cima'],
-  ['bottom', 'fondo'],
-  ['side', 'lado'],
-  ['front', 'frente'],
-  ['back', 'atrás'],
-  ['outside', 'afuera'],
-  ['inside', 'adentro de'],
-  ['up', 'arriba'],
-  ['down', 'abajo'],
-  ['left', 'izquierdo'],
-  ['right', 'derecho'],
-  ['straight', 'recto'],
-  ['beside', 'junto a'],
-  ['at', 'a'],
-  ['direction', 'dirección'],
-  ['Summer', 'El verano'],
-  ['Spring', 'Primavera'],
-  ['Winter', 'Invierno'],
-  ['dry season', 'estación seca'],
-  ['wet season', 'temporada húmeda'],
-  ['hot season', 'temporada cálida'],
-  ['Fall', 'Caer'],
-  ['season', 'temporada'],
-  ['zero', 'cero'],
-  ['one', 'uno'],
-  ['two', 'dos'],
-  ['three', 'Tres'],
-  ['four', 'cuatro'],
-  ['five', 'cinco'],
-  ['six', 'seis'],
-  ['seven', 'siete'],
-  ['eight', 'ocho'],
-  ['nine', 'nueve'],
-  ['ten', 'diez'],
-  ['eleven', 'once'],
-  ['twelve', 'doce'],
-  ['thirteen', 'trece'],
-  ['fourteen', 'catorce'],
-  ['fifteen', 'fifiteen'],
-  ['sixteen', 'dieciséis'],
-  ['seventeen', 'diecisiete'],
-  ['eighteen', 'Dieciocho'],
-  ['nineteen', 'diecinueve'],
-  ['twenty', '20'],
-  ['twenty-one', 'veintiún'],
-  ['twenty-two', 'Veintidós'],
-  ['thirty', 'treinta'],
-  ['thirty-one', 'treinta y uno'],
-  ['thirty-two', 'treinta y dos'],
-  ['forty', 'cuarenta'],
-  ['forty-one', 'cuarenta y uno'],
-  ['forty-two', 'cuarenta y dos'],
-  ['fifty', 'cincuenta'],
-  ['fifty-one', 'cincuenta y uno'],
-  ['fifty-two', 'cincuenta y dos'],
-  ['sixty', 'sesenta'],
-  ['sixty-one', 'sesenta y uno'],
-  ['sixty-two', 'sesenta y dos'],
-  ['seventy', 'setenta'],
-  ['seventy-one', 'setenta y uno'],
-  ['seventy-two', 'setenta y dos'],
-  ['eighty', 'ochenta'],
-  ['eighty-one', 'ochenta y uno'],
-  ['eighty-two', 'ochenta y dos'],
-  ['ninety', 'noventa'],
-  ['ninety-one', 'noventa y uno'],
-  ['ninety-two', 'noventa y dos'],
-  ['one hundred', 'cien'],
-  ['one hundred and one', 'ciento uno'],
-  ['one hundred and two', 'ciento dos'],
-  ['one hundred and ten', 'ciento diez'],
-  ['one hundred and eleven', 'Ciento once'],
-  ['one thousand', 'mil'],
-  ['one thousand and one', 'ciento uno'],
-  ['ten thousand', 'diez mil'],
-  ['one hundred thousand', 'cien mil'],
-  ['one million', 'un millón'],
-  ['one billion', 'se billioin'],
-  ['first', 'primero'],
-  ['second', 'segundo'],
-  ['third', 'tercera'],
-  ['fourth', 'cuarto'],
-  ['fifth', 'quinto'],
-  ['sixth', 'sexto'],
-  ['January', 'enero'],
-  ['February', 'febrero'],
-  ['March', 'marzo'],
-  ['April', 'abril'],
-  ['May', 'Mayo'],
-  ['June', 'junio'],
-  ['July', 'julio'],
-  ['August', 'agosto'],
-  ['September', 'septiembre'],
-  ['October', 'octubre'],
-  ['November', 'noviembre'],
-  ['December', 'diciembre'],
-  ['Monday', 'lunes'],
-  ['Tuesday', 'martes'],
-  ['Wednesday', 'miércoles'],
-  ['Thursday', 'jueves'],
-  ['Friday', 'viernes'],
-  ['Saturday', 'sábado'],
-  ['Sunday', 'domingo'],
-  ['year', 'año'],
-  ['month', 'mes'],
-  ['week', 'semana'],
-  ['day', 'día'],
-  ['hour', 'hora'],
-  ['minute', 'minuto'],
-  ['second', 'segundo'],
-  ['morning', 'Mañana'],
-  ['afternoon', 'tarde'],
-  ['evening', 'anochecer'],
-  ['night', 'noche'],
-  ['time', 'hora'],
-  ['to work', 'trabajar'],
-  ['to play', 'jugar'],
-  ['to walk', 'caminar'],
-  ['to run', 'correr'],
-  ['to drive', 'conducir'],
-  ['to fly', 'para volar'],
-  ['to swim', 'nadar'],
-  ['to go', 'ir'],
-  ['to stop', 'detener'],
-  ['to follow', 'seguir'],
-  ['to think', 'pensar'],
-  ['to speak', 'hablar'],
-  ['to say', 'decir'],
-  ['to chat', 'para charlar'],
-  ['to tell', 'decir'],
-  ['to whisper', 'susurrar'],
-  ['to yell', 'gritar'],
-  ['to eat', 'comer'],
-  ['to drink', 'beber'],
-  ['to kill', 'matar'],
-  ['to die', 'morir'],
-  ['to win', 'ganar'],
-  ['to lose', 'A perder'],
-  ['to smile', 'sonreír'],
-  ['to laugh', 'reír'],
-  ['to cry', 'llorar'],
-  ['to buy', 'Comprar'],
-  ['to pay', 'pagar'],
-  ['to sell', 'para vender'],
-  ['to shoot a gun', 'para disparar un arma de fuego'],
-  ['to learn', 'aprender'],
-  ['to jump', 'saltar'],
-  ['to smell', 'oler'],
-  ['to hear sound', 'para escuchar el sonido'],
-  ['to listen to music', 'escuchar música'],
-  ['to taste', 'probar'],
-  ['to touch', 'tocar'],
-  ['to see a bird', 'para ver un pájaro'],
-  ['to watch tv', 'ver la televisión'],
-  ['to kiss', 'para besar'],
-  ['to burn', 'para quemar'],
-  ['to melt', 'para fundir'],
-  ['to dig', 'cavar'],
-  ['to explode', 'explotar'],
-  ['to sit', 'sentarse'],
-  ['to stand', 'reposar'],
-  ['to love', 'amar'],
-  ['to pass by', 'pasar por'],
-  ['to cut', 'Para cortar'],
-  ['to fight', 'pelear'],
-  ['to lie down', 'tumbarse'],
-  ['to dance', 'bailar'],
-  ['to sleep', 'dormir'],
-  ['to wake up', 'Para despertar'],
-  ['to sing', 'cantar'],
-  ['to count', 'para contar'],
-  ['to marry', 'casarse'],
-  ['to pray', 'a orar'],
-  ['to win', 'ganar'],
-  ['to lose', 'A perder'],
-  ['to mix/stir', 'mezclar / revuelo'],
-  ['to bend', 'para doblar'],
-  ['to wash', 'lavar'],
-  ['to cook', 'cocinar'],
-  ['to open', 'abrir'],
-  ['to close', 'cerrar'],
-  ['to write', 'escribir'],
-  ['to call', 'llamar'],
-  ['to turn', 'girar'],
-  ['to build', 'para construir'],
-  ['to teach', 'enseñar'],
-  ['to grow', 'crecer'],
-  ['to draw', 'dibujar'],
-  ['to feed', 'Para alimentar'],
-  ['to catch', 'atrapar'],
-  ['to throw', 'lanzar'],
-  ['to clean', 'limpiar'],
-  ['to find', 'encontrar'],
-  ['to fall', 'caer'],
-  ['to stumble', 'tropezar'],
-  ['to fall in love', 'para enamorarse'],
-  ['to push', 'para empujar'],
-  ['to pull', 'tirar'],
-  ['to carry', 'llevar'],
-  ['to break', 'romper'],
-  ['to wear', 'llevar'],
-  ['to hang', 'colgar'],
-  ['to shake', 'agitar'],
-  ['to sign', 'para firmar'],
-  ['to beat', 'vencer'],
-  ['to lift', 'levantar'],
-  ['long', 'largo'],
-  ['short', 'corto y largo'],
-  ['tall', 'alto'],
-  ['short (vs tall)', 'corto (vs altura)'],
-  ['wide', 'amplio'],
-  ['narrow', 'angostas'],
-  ['big - large', 'Muy grande'],
-  ['small - little', 'pequeña - pequeña'],
-  ['slow', 'lento'],
-  ['fast', 'ayunar'],
-  ['hot', 'caliente'],
-  ['cold', 'frío'],
-  ['warm', 'calentar'],
-  ['cool', 'guay'],
-  ['new', 'nuevo'],
-  ['old - new', 'viejo nuevo'],
-  ['young', 'joven'],
-  ['young and old', 'joven y viejo'],
-  ['good', 'bien'],
-  ['bad', 'malo'],
-  ['wet', 'mojado'],
-  ['dry', 'seco'],
-  ['sick', 'enfermos'],
-  ['healthy', 'saludable'],
-  ['loud', 'ruidoso'],
-  ['quiet', 'tranquilo'],
-  ['happy', 'feliz'],
-  ['sad', 'triste'],
-  ['beautiful', 'hermosa'],
-  ['ugly', 'feo'],
-  ['cute', 'linda'],
-  ['deaf', 'sordo'],
-  ['blind', 'ciego'],
-  ['nice', 'bonito'],
-  ['mean', 'media'],
-  ['rich', 'Rico'],
-  ['poor', 'pobre'],
-  ['thick', 'grueso'],
-  ['thin', 'delgada'],
-  ['expensive', 'caro'],
-  ['cheap', 'barato'],
-  ['flat', 'llano'],
-  ['curved', 'curvo'],
-  ['male', 'masculino'],
-  ['female', 'hembra'],
-  ['tight', 'ajustado'],
-  ['loose', 'suelto'],
-  ['high', 'alto'],
-  ['low', 'bajo'],
-  ['soft', 'suave'],
-  ['hard', 'difícil'],
-  ['deep', 'profundo'],
-  ['shallow', 'superficial'],
-  ['clean', 'limpiar'],
-  ['dirty', 'sucio'],
-  ['strong', 'fuerte'],
-  ['weak', 'débiles'],
-  ['dead', 'muerto'],
-  ['alive', 'viva'],
-  ['heavy', 'pesado'],
-  ['lightweight', 'ligero'],
-  ['dark', 'oscuro'],
-  ['light color', 'color claro'],
-  ['nuclear', 'nuclear'],
-  ['famous', 'famoso'],
-  ['I', 'yo'],
-  ['you', 'usted'],
-  ['he', 'él'],
-  ['she', 'ella'],
-  ['it', 'ello'],
-  ['we', 'nosotros'],
-  ['all of you', 'Todos ustedes'],
-  ['they', 'ellos'],
-  ['What?', '¿Qué?'],
-  ['Which?', '¿Cual?'],
-  ['Where?', '¿Dónde?'],
-  ['Who?', '¿OMS?'],
-  ['Why?', '¿Por qué?'],
-  ['How?', '¿Cómo?'],
-  ['How Much?', '¿Cuánto cuesta?'],
-  ['How Many?', '¿Cuántos?']
-]
+class WordEntry
+  attr_accessor :translations
+
+  def initialize(translations)
+    @translations = translations
+  end
+
+  def [](lang)
+    translations[lang]
+  end
+end
+
+class Dictionary
+  attr_reader :entries
+
+  def initialize
+    @entries = []
+  end
+
+  def add_entry(translations)
+    entries << WordEntry.new(translations)
+  end
+
+  def random_entries(count = 10)
+    entries.shuffle.first(count)
+  end
+end
+
+DICTIONARY = Dictionary.new
+
+DICTIONARY.add_entry({ en: 'cat', es: 'gato' })
+DICTIONARY.add_entry({ en: 'fish', es: 'pescado' })
+DICTIONARY.add_entry({ en: 'bird', es: 'pájaro' })
+DICTIONARY.add_entry({ en: 'cow', es: 'vaca' })
+DICTIONARY.add_entry({ en: 'sheep', es: 'oveja' })
+DICTIONARY.add_entry({ en: 'goat', es: 'cabra' })
+DICTIONARY.add_entry({ en: 'pig', es: 'cerdo' })
+DICTIONARY.add_entry({ en: 'mouse', es: 'ratón' })
+DICTIONARY.add_entry({ en: 'rat', es: 'rata' })
+DICTIONARY.add_entry({ en: 'horse', es: 'caballo' })
+DICTIONARY.add_entry({ en: 'wing', es: 'ala' })
+DICTIONARY.add_entry({ en: 'animal', es: 'animal' })
+DICTIONARY.add_entry({ en: 'train', es: 'entrenar' })
+DICTIONARY.add_entry({ en: 'aeroplane', es: 'avión' })
+DICTIONARY.add_entry({ en: 'car', es: 'automóvil' })
+DICTIONARY.add_entry({ en: 'truck', es: 'camión' })
+DICTIONARY.add_entry({ en: 'bicycle', es: 'bicicleta' })
+DICTIONARY.add_entry({ en: 'motorcycle', es: 'motocicleta' })
+DICTIONARY.add_entry({ en: 'bus', es: 'autobús' })
+DICTIONARY.add_entry({ en: 'boat', es: 'barco' })
+DICTIONARY.add_entry({ en: 'ship', es: 'enviar' })
+DICTIONARY.add_entry({ en: 'tire', es: 'neumático' })
+DICTIONARY.add_entry({ en: 'gasoline', es: 'gasolina' })
+DICTIONARY.add_entry({ en: 'engine', es: 'motor' })
+DICTIONARY.add_entry({ en: 'train ticket', es: 'boleto de tren' })
+DICTIONARY.add_entry({ en: 'transportation', es: 'transportación' })
+DICTIONARY.add_entry({ en: 'city', es: 'ciudad' })
+DICTIONARY.add_entry({ en: 'house', es: 'casa' })
+DICTIONARY.add_entry({ en: 'apartment', es: 'apartamento' })
+DICTIONARY.add_entry({ en: 'street/road', es: 'calle / carretera' })
+DICTIONARY.add_entry({ en: 'airport', es: 'aeropuerto' })
+DICTIONARY.add_entry({ en: 'train station', es: 'estación de tren' })
+DICTIONARY.add_entry({ en: 'bridge', es: 'puente' })
+DICTIONARY.add_entry({ en: 'hotel', es: 'hotel' })
+DICTIONARY.add_entry({ en: 'restaurant', es: 'restaurante' })
+DICTIONARY.add_entry({ en: 'farm', es: 'granja' })
+DICTIONARY.add_entry({ en: 'court', es: 'la Corte' })
+DICTIONARY.add_entry({ en: 'school', es: 'colegio' })
+DICTIONARY.add_entry({ en: 'office', es: 'oficina' })
+DICTIONARY.add_entry({ en: 'room', es: 'cuarto' })
+DICTIONARY.add_entry({ en: 'town', es: 'ciudad' })
+DICTIONARY.add_entry({ en: 'university', es: 'universidad' })
+DICTIONARY.add_entry({ en: 'club', es: 'club' })
+DICTIONARY.add_entry({ en: 'bar', es: 'bar' })
+DICTIONARY.add_entry({ en: 'park', es: 'parque' })
+DICTIONARY.add_entry({ en: 'camp', es: 'acampar' })
+DICTIONARY.add_entry({ en: 'store/shop', es: 'tienda' })
+DICTIONARY.add_entry({ en: 'theater', es: 'el teatro' })
+DICTIONARY.add_entry({ en: 'library', es: 'biblioteca' })
+DICTIONARY.add_entry({ en: 'hospital', es: 'hospital' })
+DICTIONARY.add_entry({ en: 'temple', es: 'templo' })
+DICTIONARY.add_entry({ en: 'church', es: 'Iglesia' })
+DICTIONARY.add_entry({ en: 'market', es: 'mercado' })
+DICTIONARY.add_entry({ en: 'country', es: 'país' })
+DICTIONARY.add_entry({ en: 'nation', es: 'nación' })
+DICTIONARY.add_entry({ en: 'state', es: 'estado' })
+DICTIONARY.add_entry({ en: 'province', es: 'provincia' })
+DICTIONARY.add_entry({ en: 'district', es: 'distrito' })
+DICTIONARY.add_entry({ en: 'building', es: 'edificio' })
+DICTIONARY.add_entry({ en: 'ground', es: 'suelo' })
+DICTIONARY.add_entry({ en: 'outer space', es: 'espacio exterior' })
+DICTIONARY.add_entry({ en: 'bank', es: 'banco' })
+DICTIONARY.add_entry({ en: 'location', es: 'localización' })
+DICTIONARY.add_entry({ en: 'United States of America', es: 'Estados Unidos de America' })
+DICTIONARY.add_entry({ en: 'Australia', es: 'Australia' })
+DICTIONARY.add_entry({ en: 'Thailand', es: 'Tailandia' })
+DICTIONARY.add_entry({ en: 'China', es: 'China' })
+DICTIONARY.add_entry({ en: 'United Kingdom', es: 'Reino Unido' })
+DICTIONARY.add_entry({ en: 'England', es: 'Inglaterra' })
+DICTIONARY.add_entry({ en: 'Spain', es: 'España' })
+DICTIONARY.add_entry({ en: 'Germany', es: 'Alemania' })
+DICTIONARY.add_entry({ en: 'France', es: 'Francia' })
+DICTIONARY.add_entry({ en: 'Middle East', es: 'medio Este' })
+DICTIONARY.add_entry({ en: 'hat', es: 'sombrero' })
+DICTIONARY.add_entry({ en: 'dress', es: 'vestido' })
+DICTIONARY.add_entry({ en: 'suit', es: 'traje' })
+DICTIONARY.add_entry({ en: 'skirt', es: 'falda' })
+DICTIONARY.add_entry({ en: 'shirt', es: 'camisa' })
+DICTIONARY.add_entry({ en: 'T-shirt', es: 'Camiseta' })
+DICTIONARY.add_entry({ en: 'pants', es: 'pantalones' })
+DICTIONARY.add_entry({ en: 'shoes', es: 'Zapatos' })
+DICTIONARY.add_entry({ en: 'pocket', es: 'bolsillo' })
+DICTIONARY.add_entry({ en: 'coat', es: 'capa' })
+DICTIONARY.add_entry({ en: 'stain', es: 'manchar' })
+DICTIONARY.add_entry({ en: 'socks', es: 'calcetines' })
+DICTIONARY.add_entry({ en: 'gloves', es: 'guantes' })
+DICTIONARY.add_entry({ en: 'necktie', es: 'corbata' })
+DICTIONARY.add_entry({ en: 'vest', es: 'chaleco' })
+DICTIONARY.add_entry({ en: 'scarf', es: 'bufanda' })
+DICTIONARY.add_entry({ en: 'clothing', es: 'ropa' })
+DICTIONARY.add_entry({ en: 'red', es: 'rojo' })
+DICTIONARY.add_entry({ en: 'green', es: 'verde' })
+DICTIONARY.add_entry({ en: 'light blue', es: 'azul claro' })
+DICTIONARY.add_entry({ en: 'dark blue', es: 'azul oscuro' })
+DICTIONARY.add_entry({ en: 'yellow', es: 'amarillo' })
+DICTIONARY.add_entry({ en: 'brown', es: 'marrón' })
+DICTIONARY.add_entry({ en: 'pink', es: 'Rosa' })
+DICTIONARY.add_entry({ en: 'purple', es: 'morado' })
+DICTIONARY.add_entry({ en: 'silver', es: 'plata' })
+DICTIONARY.add_entry({ en: 'gold', es: 'oro' })
+DICTIONARY.add_entry({ en: 'orange', es: 'naranja' })
+DICTIONARY.add_entry({ en: 'black', es: 'negro' })
+DICTIONARY.add_entry({ en: 'white', es: 'blanco' })
+DICTIONARY.add_entry({ en: 'gray', es: 'gris' })
+DICTIONARY.add_entry({ en: 'colour', es: 'color' })
+DICTIONARY.add_entry({ en: 'son*', es: 'hijo*'})
+DICTIONARY.add_entry({ en: 'daughter*', es: 'hija*'})
+DICTIONARY.add_entry({ en: 'mother', es: 'madre'})
+DICTIONARY.add_entry({ en: 'father', es: 'padre'})
+DICTIONARY.add_entry({ en: 'parents', es: 'madre padre - padre'})
+DICTIONARY.add_entry({ en: 'baby', es: 'bebé'})
+DICTIONARY.add_entry({ en: 'man',es: 'hombre'})
+DICTIONARY.add_entry({ en: 'woman',es: 'mujer'})
+DICTIONARY.add_entry({ en: 'brother*',es: 'hermano*'})
+DICTIONARY.add_entry({ en: 'sister*',es: 'hermana*'})
+DICTIONARY.add_entry({ en: 'family',es: 'familia'})
+DICTIONARY.add_entry({ en: 'grandfather',es: 'abuelo'})
+DICTIONARY.add_entry({ en: 'grandmother', es:'abuela'})
+DICTIONARY.add_entry({ en: 'husband*',es: 'esposo*'})
+DICTIONARY.add_entry({ en: 'wife*',es: 'esposa*'})
+DICTIONARY.add_entry({ en: 'king',es: 'Rey'})
+DICTIONARY.add_entry({ en: 'queen',es: 'reina'})
+DICTIONARY.add_entry({ en: 'president',es: 'presidente'})
+DICTIONARY.add_entry({ en: 'neighbor',es: 'vecino'})
+DICTIONARY.add_entry({ en: 'boy',es: 'chico'})
+DICTIONARY.add_entry({ en: 'girl',es: 'muchacha'})
+DICTIONARY.add_entry({ en: 'child boy',es: 'muchachos niño'})
+DICTIONARY.add_entry({ en: 'child girl',es: 'Chica niño'})
+DICTIONARY.add_entry({ en: 'adult man', es:'hombre adulto'})
+DICTIONARY.add_entry({ en: 'adult woman',es: 'mujer adulta'})
+DICTIONARY.add_entry({ en: 'human',es: 'humano'})
+DICTIONARY.add_entry({ en: 'friend',es: 'amigo'})
+DICTIONARY.add_entry({ en: 'victim',es: 'víctima'})
+DICTIONARY.add_entry({ en: 'player',es: 'jugador'})
+DICTIONARY.add_entry({ en: 'fan',es: 'abanico'})
+DICTIONARY.add_entry({ en: 'crowd',es: 'multitud'})
+DICTIONARY.add_entry({ en: 'person',es: 'la persona'})
+DICTIONARY.add_entry({ en: 'Teacher',es: 'maestro'})
+DICTIONARY.add_entry({ en: 'student',es: 'estudiante'})
+DICTIONARY.add_entry({ en: 'lawyer',es: 'abogado'})
+DICTIONARY.add_entry({ en: 'doctor',es: 'doctor'})
+DICTIONARY.add_entry({ en: 'patient',es: 'paciente'})
+DICTIONARY.add_entry({ en: 'waiter',es: 'camarero'})
+DICTIONARY.add_entry({ en: 'secretary',es: 'secretario'})
+DICTIONARY.add_entry({ en: 'priest',es: 'sacerdote'})
+DICTIONARY.add_entry({ en: 'police',es: 'policía'})
+DICTIONARY.add_entry({ en: 'army', es:'ejército'})
+DICTIONARY.add_entry({ en: 'soldier',es: 'soldado'})
+DICTIONARY.add_entry({ en: 'artist',es: 'artista'})
+DICTIONARY.add_entry({ en: 'engineer',es: 'ingeniero'})
+DICTIONARY.add_entry({ en: 'author',es: 'autor'})
+DICTIONARY.add_entry({ en: 'manager',es: 'gerente'})
+DICTIONARY.add_entry({ en: 'reporter',es: 'reportero'})
+DICTIONARY.add_entry({ en: 'actor',es: 'actor'})
+DICTIONARY.add_entry({ en: 'job',es: 'trabajo'})
+DICTIONARY.add_entry({ en: 'religion',es: 'religión'})
+DICTIONARY.add_entry({ en: 'heaven',es: 'cielo'})
+DICTIONARY.add_entry({ en: 'hell',es: 'infierno'})
+DICTIONARY.add_entry({ en: 'god', es:'Dios'})
+DICTIONARY.add_entry({ en: 'devil', es:'diablo'})
+DICTIONARY.add_entry({ en: 'angel',es: 'ángel'})
+DICTIONARY.add_entry({ en: 'fairy',es: 'hada'})
+DICTIONARY.add_entry({ en: 'spirit',es: 'espíritu'})
+DICTIONARY.add_entry({ en: 'demon',es: 'demonio'})
+DICTIONARY.add_entry({ en: 'death',es: 'muerte'})
+DICTIONARY.add_entry({ en: 'medicine',es: 'medicina'})
+DICTIONARY.add_entry({ en: 'money',es: 'dinero'})
+DICTIONARY.add_entry({ en: 'dollar',es: 'dólar'})
+DICTIONARY.add_entry({ en: 'bill',es: 'cuenta'})
+DICTIONARY.add_entry({ en: 'marriage*',es: 'matrimonio*'})
+DICTIONARY.add_entry({ en: 'wedding*',es: 'boda*'})
+DICTIONARY.add_entry({ en: 'team',es: 'equipo'})
+DICTIONARY.add_entry({ en: 'ethnicity',es: 'etnicidad'})
+DICTIONARY.add_entry({ en: 'sexual intercourse',es: 'relaciones sexuales'})
+DICTIONARY.add_entry({ en: 'gender',es: 'género'})
+DICTIONARY.add_entry({ en: 'murder',es: 'asesinato'})
+DICTIONARY.add_entry({ en: 'prison',es: 'prisión'})
+DICTIONARY.add_entry({ en: 'technology',es: 'tecnología'})
+DICTIONARY.add_entry({ en: 'energy', es:'energía'})
+DICTIONARY.add_entry({ en: 'war',es: 'guerra'})
+DICTIONARY.add_entry({ en: 'peace',es: 'paz'})
+DICTIONARY.add_entry({ en: 'attack',es: 'ataque'})
+DICTIONARY.add_entry({ en: 'democracy',es: 'democracia'})
+DICTIONARY.add_entry({ en: 'capitalism',es: 'capitalismo'})
+DICTIONARY.add_entry({ en: 'socialism',es: 'socialismo'})
+DICTIONARY.add_entry({ en: 'communism',es: 'comunismo'})
+DICTIONARY.add_entry({ en: 'dictator',es: 'dictador'})
+DICTIONARY.add_entry({ en: 'election',es: 'elección'})
+DICTIONARY.add_entry({ en: 'magazine',es: 'revista'})
+DICTIONARY.add_entry({ en: 'newspaper',es: 'periódico'})
+DICTIONARY.add_entry({ en: 'poison',es: 'veneno'})
+DICTIONARY.add_entry({ en: 'gun',es: 'pistola'})
+DICTIONARY.add_entry({ en: 'sport', es:'deporte'})
+DICTIONARY.add_entry({ en: 'sport race',es: 'carrera deportiva'})
+DICTIONARY.add_entry({ en: 'exercise',es: 'ejercicio'})
+DICTIONARY.add_entry({ en: 'ball',es: 'bola'})
+DICTIONARY.add_entry({ en: 'game',es: 'juego'})
+DICTIONARY.add_entry({ en: 'price', es:'precio'})
+DICTIONARY.add_entry({ en: 'contract',es: 'contrato'})
+DICTIONARY.add_entry({ en: 'drug',es: 'droga'})
+DICTIONARY.add_entry({ en: 'sign', es:'señal'})
+DICTIONARY.add_entry({ en: 'science',es: 'ciencia'})
+DICTIONARY.add_entry({ en: 'God',es: 'Dios'})
+DICTIONARY.add_entry({ en: 'band',es: 'banda'})
+DICTIONARY.add_entry({ en: 'song',es: 'canción'})
+DICTIONARY.add_entry({ en: 'musical instrument',es: 'instrumento musical'})
+DICTIONARY.add_entry({ en: 'music',es: 'música'})
+DICTIONARY.add_entry({ en: 'painting',es: 'cuadro'})
+DICTIONARY.add_entry({ en: 'photography',es: 'fotografía'})
+DICTIONARY.add_entry({ en: 'movie',es: 'película'})
+DICTIONARY.add_entry({ en: 'art',es: 'arte'})
+DICTIONARY.add_entry({ en: 'coffee',es: 'café'})
+DICTIONARY.add_entry({ en: 'tea',es: 'té'})
+DICTIONARY.add_entry({ en: 'wine',es: 'Vino'})
+DICTIONARY.add_entry({ en: 'beer',es: 'cerveza'})
+DICTIONARY.add_entry({ en: 'juice',es: 'jugo'})
+DICTIONARY.add_entry({ en: 'water',es: 'agua'})
+DICTIONARY.add_entry({ en: 'milk',es: 'leche'})
+DICTIONARY.add_entry({ en: 'beverage',es: 'bebida'})
+DICTIONARY.add_entry({ en: 'egg', es:'huevo'})
+DICTIONARY.add_entry({ en: 'cheese',es: 'queso'})
+DICTIONARY.add_entry({ en: 'bread',es: 'pan de molde'})
+DICTIONARY.add_entry({ en: 'soup',es: 'sopa'})
+DICTIONARY.add_entry({ en: 'cake',es: 'pastel'})
+DICTIONARY.add_entry({ en: 'chicken',es: 'pollo'})
+DICTIONARY.add_entry({ en: 'pork',es: 'cerdo'})
+DICTIONARY.add_entry({ en: 'beef', es:'carne de vaca'})
+DICTIONARY.add_entry({ en: 'apple', es:'manzana'})
+DICTIONARY.add_entry({ en: 'banana',es: 'plátano'})
+DICTIONARY.add_entry({ en: 'orange',es: 'naranja'})
+DICTIONARY.add_entry({ en: 'lemon',es: 'limón'})
+DICTIONARY.add_entry({ en: 'corn', es:'maíz'})
+DICTIONARY.add_entry({ en: 'rice',es: 'arroz'})
+DICTIONARY.add_entry({ en: 'oil',es: 'aceite'})
+DICTIONARY.add_entry({ en: 'seed',es: 'semilla'})
+DICTIONARY.add_entry({ en: 'knife',es: 'cuchillo'})
+DICTIONARY.add_entry({ en: 'spoon',es: 'cuchara'})
+DICTIONARY.add_entry({ en: 'fork',es: 'tenedor'})
+DICTIONARY.add_entry({ en: 'plate',es: 'plato'})
+DICTIONARY.add_entry({ en: 'cup',es: 'taza'})
+DICTIONARY.add_entry({ en: 'breakfast',es: 'desayuno'})
+DICTIONARY.add_entry({ en: 'lunch',es: 'almuerzo'})
+DICTIONARY.add_entry({ en: 'dinner',es: 'cena'})
+DICTIONARY.add_entry({ en: 'sugar', es:'azúcar'})
+DICTIONARY.add_entry({ en: 'salt', es:'sal'})
+DICTIONARY.add_entry({ en: 'bottle',es: 'botella'})
+DICTIONARY.add_entry({ en: 'food',es: 'comida'})
+DICTIONARY.add_entry({ en: 'table',es: 'mesa'})
+DICTIONARY.add_entry({ en: 'chair',es: 'silla'})
+DICTIONARY.add_entry({ en: 'bed', es:'cama'})
+DICTIONARY.add_entry({ en: 'dream', es:'sueña'})
+DICTIONARY.add_entry({ en: 'window',es: 'ventana'})
+DICTIONARY.add_entry({ en: 'door', es:'puerta'})
+DICTIONARY.add_entry({ en: 'bedroom',es: 'dormitorio'})
+DICTIONARY.add_entry({ en: 'kitchen',es: 'cocina'})
+DICTIONARY.add_entry({ en: 'bathroom',es: 'baño'})
+DICTIONARY.add_entry({ en: 'pencil', es:'lápiz'})
+DICTIONARY.add_entry({ en: 'pen', es:'pluma'})
+DICTIONARY.add_entry({ en: 'photograph',es: 'fotografía'})
+DICTIONARY.add_entry({ en: 'soap',es: 'jabón'})
+DICTIONARY.add_entry({ en: 'book',es: 'libro'})
+DICTIONARY.add_entry({ en: 'page',es: 'página'})
+DICTIONARY.add_entry({ en: 'key', es:'clave'})
+DICTIONARY.add_entry({ en: 'paint', es:'pintura'})
+DICTIONARY.add_entry({ en: 'letter',es: 'carta'})
+DICTIONARY.add_entry({ en: 'note',es: 'Nota'})
+DICTIONARY.add_entry({ en: 'wall',es: 'pared'})
+DICTIONARY.add_entry({ en: 'brick',es: 'ladrillo'})
+  DICTIONARY.add_entry({ en: 'tile',es: 'azulejo'})
+  DICTIONARY.add_entry({ en: 'wood', es:'madera'})
+  DICTIONARY.add_entry({ en: 'concrete',es: 'hormigón'})
+  DICTIONARY.add_entry({ en: 'paper',es: 'papel'})
+  DICTIONARY.add_entry({ en: 'floor', es:'planta'})
+  DICTIONARY.add_entry({ en: 'ceiling',es: 'techo'})
+  DICTIONARY.add_entry({ en: 'floor',es: 'planta'})
+  DICTIONARY.add_entry({ en: 'ceiling',es: 'techo'})
+  DICTIONARY.add_entry({ en: 'roof',es: 'techo'})
+  DICTIONARY.add_entry({ en: 'pool',es: 'piscina'})
+  DICTIONARY.add_entry({ en: 'lock',es: 'bloquear'})
+  DICTIONARY.add_entry({ en: 'telephone',es: 'teléfono'})
+  DICTIONARY.add_entry({ en: 'garden',es: 'jardín'})
+  DICTIONARY.add_entry({ en: 'yard',es: 'yarda'})
+  DICTIONARY.add_entry({ en: 'needle',es: 'aguja'})
+  DICTIONARY.add_entry({ en: 'bag',es: 'bolso'})
+  DICTIONARY.add_entry({ en: 'box',es: 'encajonar'})
+  DICTIONARY.add_entry({ en: 'gift',es: 'regalo'})
+  DICTIONARY.add_entry({ en: 'card', es:'tarjeta'})
+  DICTIONARY.add_entry({ en: 'ring',es: 'anillo'})
+  DICTIONARY.add_entry({ en: 'tool',es: 'herramienta'})
+  DICTIONARY.add_entry({ en: 'clock',es: 'reloj'})
+  DICTIONARY.add_entry({ en: 'lamp',es: 'lámpara'})
+  DICTIONARY.add_entry({ en: 'fan', es:'abanico'})
+  DICTIONARY.add_entry({ en: 'cell phone',es: 'Teléfono móvil'})
+  DICTIONARY.add_entry({ en: 'network',es: 'la red'})
+  DICTIONARY.add_entry({ en: 'computer',es: 'computadora'})
+  DICTIONARY.add_entry({ en: 'computer program',es: 'programa de computadora'})
+  DICTIONARY.add_entry({ en: 'laptop',es: 'computadora portátil'})
+  DICTIONARY.add_entry({ en: 'screen',es: 'pantalla'})
+  DICTIONARY.add_entry({ en: 'camera',es: 'camara fotografica'})
+  DICTIONARY.add_entry({ en: 'television',es: 'televisión'})
+  DICTIONARY.add_entry({ en: 'internet',es: 'Internet'})
+  DICTIONARY.add_entry({ en: 'download',es: 'descargar'})
+  DICTIONARY.add_entry({ en: 'install',es: 'instalar'})
+  DICTIONARY.add_entry({ en: 'wifi',es: 'Wi-Fi'})
+  DICTIONARY.add_entry({ en: 'radio',es: 'radio'})
+  DICTIONARY.add_entry({ en: 'head',es: 'cabeza'})
+  DICTIONARY.add_entry({ en: 'fur',es: 'pelaje'})
+  DICTIONARY.add_entry({ en: 'neck',es: 'cuello'})
+  DICTIONARY.add_entry({ en: 'face',es: 'cara'})
+  DICTIONARY.add_entry({ en: 'beard',es: 'barba'})
+  DICTIONARY.add_entry({ en: 'hair', es:'cabello'})
+  DICTIONARY.add_entry({ en: 'eye',es: 'ojo'})
+  DICTIONARY.add_entry({ en: 'mouth',es: 'boca'})
+  DICTIONARY.add_entry({ en: 'lips',es: 'labios'})
+  DICTIONARY.add_entry({ en: 'nose',es: 'nariz'})
+  DICTIONARY.add_entry({ en: 'tooth',es: 'diente'})
+  DICTIONARY.add_entry({ en: 'ear', es:'oreja'})
+  DICTIONARY.add_entry({ en: 'teardrop',es: 'lágrima'})
+  DICTIONARY.add_entry({ en: 'tongue',es: 'lengua'})
+  DICTIONARY.add_entry({ en: 'back',es: 'atrás'})
+  DICTIONARY.add_entry({ en: 'toe',es: 'dedo del pie'})
+  DICTIONARY.add_entry({ en: 'finger',es: 'dedo'})
+  DICTIONARY.add_entry({ en: 'foot',es: 'pie'})
+  DICTIONARY.add_entry({ en: 'hand', es:'mano'})
+  DICTIONARY.add_entry({ en: 'leg',es: 'pierna'})
+  DICTIONARY.add_entry({ en: 'arm',es: 'brazo'})
+  DICTIONARY.add_entry({ en: 'shoulder',es: 'hombro'})
+  DICTIONARY.add_entry({ en: 'heart',es: 'corazón'})
+  DICTIONARY.add_entry({ en: 'blood',es: 'sangre'})
+  DICTIONARY.add_entry({ en: 'brain',es: 'cerebro'})
+  DICTIONARY.add_entry({ en: 'knee',es: 'rodilla'})
+  DICTIONARY.add_entry({ en: 'sweat',es: 'sudor'})
+  DICTIONARY.add_entry({ en: 'disease',es: 'enfermedad'})
+  DICTIONARY.add_entry({ en: 'bone',es: 'hueso'})
+  DICTIONARY.add_entry({ en: 'voice',es: 'voz'})
+  DICTIONARY.add_entry({ en: 'skin',es: 'piel'})
+  DICTIONARY.add_entry({ en: 'fingernail',es: 'uña'})
+  DICTIONARY.add_entry({ en: 'eyebrow',es: 'ceja'})
+  DICTIONARY.add_entry({ en: 'eyelash',es: 'pestaña'})
+  DICTIONARY.add_entry({ en: 'corpse',es: 'cadáver'})
+  DICTIONARY.add_entry({ en: 'human body',es: 'cuerpo humano'})
+  DICTIONARY.add_entry({ en: 'sea*',es: 'mar*'})
+  DICTIONARY.add_entry({ en: 'ocean*',es: 'océano*'})
+  DICTIONARY.add_entry({ en: 'river',es: 'río'})
+  DICTIONARY.add_entry({ en: 'mountain',es: 'montaña'})
+  DICTIONARY.add_entry({ en: 'rain',es: 'lluvia'})
+  DICTIONARY.add_entry({ en: 'snow',es: 'nieve'})
+  DICTIONARY.add_entry({ en: 'tree',es: 'árbol'})
+  DICTIONARY.add_entry({ en: 'sun',es: 'sol'})
+  DICTIONARY.add_entry({ en: 'moon',es: 'Luna'})
+  DICTIONARY.add_entry({ en: 'world',es: 'mundo'})
+  DICTIONARY.add_entry({ en: 'Earth',es: 'Tierra'})
+  DICTIONARY.add_entry({ en: 'forest',es: 'bosque'})
+  DICTIONARY.add_entry({ en: 'sky',es: 'cielo'})
+  DICTIONARY.add_entry({ en: 'plant',es: 'planta'})
+  DICTIONARY.add_entry({ en: 'wind',es: 'viento'})
+  DICTIONARY.add_entry({ en: 'soil/earth', es:'suelo / tierra'})
+  DICTIONARY.add_entry({ en: 'flower',es: 'flor'})
+  DICTIONARY.add_entry({ en: 'valley', es:'Valle'})
+  DICTIONARY.add_entry({ en: 'root',es: 'raíz'})
+  DICTIONARY.add_entry({ en: 'lake',es: 'lago'})
+  DICTIONARY.add_entry({ en: 'star', es:'estrella'})
+  DICTIONARY.add_entry({ en: 'grass',es: 'césped'})
+  DICTIONARY.add_entry({ en: 'leaf',es: 'hoja'})
+  DICTIONARY.add_entry({ en: 'air',es: 'aire'})
+  DICTIONARY.add_entry({ en: 'sand',es: 'arena'})
+  DICTIONARY.add_entry({ en: 'beach',es: 'playa'})
+  DICTIONARY.add_entry({ en: 'wave',es: 'ola'})
+  DICTIONARY.add_entry({ en: 'fire',es: 'fuego'})
+  DICTIONARY.add_entry({ en: 'ice',es: 'hielo'})
+  DICTIONARY.add_entry({ en: 'island',es: 'isla'})
+  DICTIONARY.add_entry({ en: 'hill',es: 'colina'})
+  DICTIONARY.add_entry({ en: 'heat',es: 'calor'})
+  DICTIONARY.add_entry({ en: 'north',es: 'norte'})
+  DICTIONARY.add_entry({ en: 'south',es: 'sur'})
+  DICTIONARY.add_entry({ en: 'east',es: 'este'})
+  DICTIONARY.add_entry({ en: 'west',es: 'Oeste'})
+  DICTIONARY.add_entry({ en: 'northeast',es: 'nordeste'})
+  DICTIONARY.add_entry({ en: 'northwest', es:'noroeste'})
+  DICTIONARY.add_entry({ en: 'southeast', es:'sudeste'})
+  DICTIONARY.add_entry({ en: 'southwest', es:'suroeste'})
+  DICTIONARY.add_entry({ en: 'north pole',es: 'Polo Norte'})
+  DICTIONARY.add_entry({ en: 'south pole',es: 'Polo Sur'})
+  DICTIONARY.add_entry({ en: 'nature',es: 'naturaleza'})
+  DICTIONARY.add_entry({ en: 'glass',es: 'vaso'})
+  DICTIONARY.add_entry({ en: 'metal',es: 'metal'})
+  DICTIONARY.add_entry({ en: 'plastic',es: 'el plastico'})
+  DICTIONARY.add_entry({ en: 'wood',es: 'madera'})
+  DICTIONARY.add_entry({ en: 'stone',es: 'piedra'})
+  DICTIONARY.add_entry({ en: 'diamond',es: 'diamante'})
+  DICTIONARY.add_entry({ en: 'clay',es: 'arcilla'})
+  DICTIONARY.add_entry({ en: 'dust',es: 'polvo'})
+  DICTIONARY.add_entry({ en: 'gold',es: 'oro'})
+  DICTIONARY.add_entry({ en: 'copper',es: 'cobre'})
+  DICTIONARY.add_entry({ en: 'silver',es: 'plata'})
+  DICTIONARY.add_entry({ en: 'material',es: 'material'})
+  DICTIONARY.add_entry({ en: 'meter',es: 'metro'})
+  DICTIONARY.add_entry({ en: 'centimeter',es: 'centímetro'})
+  DICTIONARY.add_entry({ en: 'kilogram',es: 'kilogramo'})
+  DICTIONARY.add_entry({ en: 'inch',es: 'pulgada'})
+  DICTIONARY.add_entry({ en: 'foot',es: 'pie'})
+  DICTIONARY.add_entry({ en: 'pound',es: 'libra'})
+  DICTIONARY.add_entry({ en: 'half',es: 'mitad'})
+  DICTIONARY.add_entry({ en: 'circle',es: 'círculo'})
+  DICTIONARY.add_entry({ en: 'square',es: 'cuadrado'})
+  DICTIONARY.add_entry({ en: 'temperature',es: 'la temperatura'})
+  DICTIONARY.add_entry({ en: 'date',es: 'fecha'})
+  DICTIONARY.add_entry({ en: 'weight', es:'peso'})
+  DICTIONARY.add_entry({ en: 'edge',es: 'borde'})
+  DICTIONARY.add_entry({ en: 'corner',es: 'esquina'})
+  DICTIONARY.add_entry({ en: 'map', es:'mapa'})
+  DICTIONARY.add_entry({ en: 'dot',es: 'punto'})
+  DICTIONARY.add_entry({ en: 'consonant',es: 'consonante'})
+  DICTIONARY.add_entry({ en: 'vowel',es: 'vocal'})
+  DICTIONARY.add_entry({ en: 'light',es: 'luz'})
+  DICTIONARY.add_entry({ en: 'sound',es: 'sonar'})
+  DICTIONARY.add_entry({ en: 'yes',es: 'sí'})
+  DICTIONARY.add_entry({ en: 'no',es: 'no'})
+  DICTIONARY.add_entry({ en: 'piece',es: 'pieza'})
+  DICTIONARY.add_entry({ en: 'pain',es: 'dolor'})
+  DICTIONARY.add_entry({ en: 'injury',es: 'lesión'})
+  DICTIONARY.add_entry({ en: 'hole',es: 'agujero'})
+  DICTIONARY.add_entry({ en: 'image',es: 'imagen'})
+  DICTIONARY.add_entry({ en: 'pattern',es: 'patrón'})
+  DICTIONARY.add_entry({ en: 'noun',es: 'sustantivo'})
+  DICTIONARY.add_entry({ en: 'verb',es: 'verbo'})
+  DICTIONARY.add_entry({ en: 'adjective', es:'adjetivo'})
+  DICTIONARY.add_entry({ en: 'top',es: 'cima'})
+  DICTIONARY.add_entry({ en: 'bottom',es: 'fondo'})
+  DICTIONARY.add_entry({ en: 'side',es: 'lado'})
+  DICTIONARY.add_entry({ en: 'front',es: 'frente'})
+  DICTIONARY.add_entry({ en: 'back',es: 'atrás'})
+  DICTIONARY.add_entry({ en: 'outside',es: 'afuera'})
+  DICTIONARY.add_entry({ en: 'inside',es: 'adentro de'})
+  DICTIONARY.add_entry({ en: 'up',es: 'arriba'})
+  DICTIONARY.add_entry({ en: 'down',es: 'abajo'})
+  DICTIONARY.add_entry({ en: 'left',es: 'izquierdo'})
+  DICTIONARY.add_entry({ en: 'right',es: 'derecho'})
+  DICTIONARY.add_entry({ en: 'straight', es:'recto'})
+  DICTIONARY.add_entry({ en: 'beside',es: 'junto a'})
+  DICTIONARY.add_entry({ en: 'at',es: 'a'})
+  DICTIONARY.add_entry({ en: 'direction',es: 'dirección'})
+  DICTIONARY.add_entry({ en: 'Summer',es: 'El verano'})
+  DICTIONARY.add_entry({ en: 'Spring',es: 'Primavera'})
+  DICTIONARY.add_entry({ en: 'Winter',es: 'Invierno'})
+  DICTIONARY.add_entry({ en: 'dry season',es: 'estación seca'})
+  DICTIONARY.add_entry({ en: 'wet season',es: 'temporada húmeda'})
+  DICTIONARY.add_entry({ en: 'hot season',es: 'temporada cálida'})
+  DICTIONARY.add_entry({ en: 'Fall',es: 'Caer'})
+  DICTIONARY.add_entry({ en: 'season',es: 'temporada'})
+  DICTIONARY.add_entry({ en: 'zero',es: 'cero'})
+  DICTIONARY.add_entry({ en: 'one',es: 'uno'})
+  DICTIONARY.add_entry({ en: 'two',es: 'dos'})
+  DICTIONARY.add_entry({ en: 'three',es: 'Tres'})
+  DICTIONARY.add_entry({ en: 'four',es: 'cuatro'})
+  DICTIONARY.add_entry({ en: 'five',es: 'cinco'})
+  DICTIONARY.add_entry({ en: 'six', es:'seis'})
+  DICTIONARY.add_entry({ en: 'seven',es: 'siete'})
+  DICTIONARY.add_entry({ en: 'eight',es: 'ocho'})
+  DICTIONARY.add_entry({ en: 'nine',es: 'nueve'})
+  DICTIONARY.add_entry({ en: 'ten',es: 'diez'})
+  DICTIONARY.add_entry({ en: 'eleven',es: 'once'})
+  DICTIONARY.add_entry({ en: 'twelve',es: 'doce'})
+  DICTIONARY.add_entry({ en: 'thirteen', es:'trece'})
+  DICTIONARY.add_entry({ en: 'fourteen', es:'catorce'})
+  DICTIONARY.add_entry({ en: 'fifteen',es: 'fifiteen'})
+  DICTIONARY.add_entry({ en: 'sixteen',es: 'dieciséis'})
+  DICTIONARY.add_entry({ en: 'seventeen',es: 'diecisiete'})
+  DICTIONARY.add_entry({ en: 'eighteen',es: 'Dieciocho'})
+  DICTIONARY.add_entry({ en: 'nineteen',es: 'diecinueve'})
+  DICTIONARY.add_entry({ en: 'twenty', es:'20'})
+  DICTIONARY.add_entry({ en: 'twenty-one',es: 'veintiún'})
+  DICTIONARY.add_entry({ en: 'twenty-two', es:'Veintidós'})
+  DICTIONARY.add_entry({ en: 'thirty',es: 'treinta'})
+  DICTIONARY.add_entry({ en: 'thirty-one',es: 'treinta y uno'})
+  DICTIONARY.add_entry({ en: 'thirty-two',es: 'treinta y dos'})
+  DICTIONARY.add_entry({ en: 'forty',es: 'cuarenta'})
+  DICTIONARY.add_entry({ en: 'forty-one',es: 'cuarenta y uno'})
+  DICTIONARY.add_entry({ en: 'forty-two',es: 'cuarenta y dos'})
+  DICTIONARY.add_entry({ en: 'fifty',es: 'cincuenta'})
+  DICTIONARY.add_entry({ en: 'fifty-one',es: 'cincuenta y uno'})
+  DICTIONARY.add_entry({ en: 'fifty-two',es: 'cincuenta y dos'})
+  DICTIONARY.add_entry({ en: 'sixty',es: 'sesenta'})
+  DICTIONARY.add_entry({ en: 'sixty-one',es: 'sesenta y uno'})
+  DICTIONARY.add_entry({ en: 'sixty-two',es: 'sesenta y dos'})
+  DICTIONARY.add_entry({ en: 'seventy',es: 'setenta'})
+  DICTIONARY.add_entry({ en: 'seventy-one',es: 'setenta y uno'})
+  DICTIONARY.add_entry({ en: 'seventy-two',es: 'setenta y dos'})
+  DICTIONARY.add_entry({ en: 'eighty',es: 'ochenta'})
+  DICTIONARY.add_entry({ en: 'eighty-one',es: 'ochenta y uno'})
+  DICTIONARY.add_entry({ en: 'eighty-two',es: 'ochenta y dos'})
+  DICTIONARY.add_entry({ en: 'ninety',es: 'noventa'})
+  DICTIONARY.add_entry({ en: 'ninety-one',es: 'noventa y uno'})
+  DICTIONARY.add_entry({ en: 'ninety-two',es: 'noventa y dos'})
+  DICTIONARY.add_entry({ en: 'one hundred', es:'cien'})
+  DICTIONARY.add_entry({ en: 'one hundred and one',es: 'ciento uno'})
+  DICTIONARY.add_entry({ en: 'one hundred and two',es: 'ciento dos'})
+  DICTIONARY.add_entry({ en: 'one hundred and ten',es: 'ciento diez'})
+  DICTIONARY.add_entry({ en: 'one hundred and eleven',es: 'Ciento once'})
+  DICTIONARY.add_entry({ en: 'one thousand',es: 'mil'})
+  DICTIONARY.add_entry({ en: 'one thousand and one', es:'ciento uno'})
+  DICTIONARY.add_entry({ en: 'ten thousand', es:'diez mil'})
+  DICTIONARY.add_entry({ en: 'one hundred thousand',es: 'cien mil'})
+  DICTIONARY.add_entry({ en: 'one million',es: 'un millón'})
+  DICTIONARY.add_entry({ en: 'one billion',es: 'se billioin'})
+  DICTIONARY.add_entry({ en: 'first', es:'primero'})
+  DICTIONARY.add_entry({ en: 'second',es: 'segundo'})
+  DICTIONARY.add_entry({ en: 'third', es:'tercera'})
+  DICTIONARY.add_entry({ en: 'fourth',es: 'cuarto'})
+  DICTIONARY.add_entry({ en: 'fifth',es: 'quinto'})
+  DICTIONARY.add_entry({ en: 'sixth',es: 'sexto'})
+  DICTIONARY.add_entry({ en: 'January',es: 'enero'})
+  DICTIONARY.add_entry({ en: 'February',es: 'febrero'})
+  DICTIONARY.add_entry({ en: 'March', es:'marzo'})
+  DICTIONARY.add_entry({ en: 'April',es: 'abril'})
+  DICTIONARY.add_entry({ en: 'May',es: 'Mayo'})
+  DICTIONARY.add_entry({ en: 'June',es: 'junio'})
+  DICTIONARY.add_entry({ en: 'July',es: 'julio'})
+  DICTIONARY.add_entry({ en: 'August',es: 'agosto'})
+  DICTIONARY.add_entry({ en: 'September',es: 'septiembre'})
+  DICTIONARY.add_entry({ en: 'October',es: 'octubre'})
+  DICTIONARY.add_entry({ en: 'November',es: 'noviembre'})
+  DICTIONARY.add_entry({ en: 'December',es: 'diciembre'})
+  DICTIONARY.add_entry({ en: 'Monday',es: 'lunes'})
+  DICTIONARY.add_entry({ en: 'Tuesday',es: 'martes'})
+  DICTIONARY.add_entry({ en: 'Wednesday',es: 'miércoles'})
+  DICTIONARY.add_entry({ en: 'Thursday',es: 'jueves'})
+  DICTIONARY.add_entry({ en: 'Friday',es: 'viernes'})
+  DICTIONARY.add_entry({ en: 'Saturday',es: 'sábado'})
+  DICTIONARY.add_entry({ en: 'Sunday',es: 'domingo'})
+  DICTIONARY.add_entry({ en: 'year',es: 'año'})
+  DICTIONARY.add_entry({ en: 'month',es: 'mes'})
+  DICTIONARY.add_entry({ en: 'week',es: 'semana'})
+  DICTIONARY.add_entry({ en: 'day',es: 'día'})
+  DICTIONARY.add_entry({ en: 'hour',es: 'hora'})
+  DICTIONARY.add_entry({ en: 'minute',es: 'minuto'})
+  DICTIONARY.add_entry({ en: 'second',es: 'segundo'})
+  DICTIONARY.add_entry({ en: 'morning',es: 'Mañana'})
+  DICTIONARY.add_entry({ en: 'afternoon',es: 'tarde'})
+  DICTIONARY.add_entry({ en: 'evening',es: 'anochecer'})
+  DICTIONARY.add_entry({ en: 'night',es: 'noche'})
+  DICTIONARY.add_entry({ en: 'time',es: 'hora'})
+  DICTIONARY.add_entry({ en: 'to work', es:'trabajar'})
+  DICTIONARY.add_entry({ en: 'to play',es: 'jugar'})
+  DICTIONARY.add_entry({ en: 'to walk',es: 'caminar'})
+  DICTIONARY.add_entry({ en: 'to run',es: 'correr'})
+  DICTIONARY.add_entry({ en: 'to drive', es:'conducir'})
+  DICTIONARY.add_entry({ en: 'to fly', es:'para volar'})
+  DICTIONARY.add_entry({ en: 'to swim',es: 'nadar'})
+  DICTIONARY.add_entry({ en: 'to go',es: 'ir'})
+  DICTIONARY.add_entry({ en: 'to stop',es: 'detener'})
+  DICTIONARY.add_entry({ en: 'to follow',es: 'seguir'})
+  DICTIONARY.add_entry({ en: 'to think',es: 'pensar'})
+  DICTIONARY.add_entry({ en: 'to speak',es: 'hablar'})
+  DICTIONARY.add_entry({ en: 'to say',es: 'decir'})
+  DICTIONARY.add_entry({ en: 'to chat',es: 'para charlar'})
+  DICTIONARY.add_entry({ en: 'to tell',es: 'decir'})
+  DICTIONARY.add_entry({ en: 'to whisper', es:'susurrar'})
+  DICTIONARY.add_entry({ en: 'to yell', es:'gritar'})
+  DICTIONARY.add_entry({ en: 'to eat',es: 'comer'})
+  DICTIONARY.add_entry({ en: 'to drink',es: 'beber'})
+  DICTIONARY.add_entry({ en: 'to kill', es:'matar'})
+  DICTIONARY.add_entry({ en: 'to die', es:'morir'})
+  DICTIONARY.add_entry({ en: 'to win',es: 'ganar'})
+  DICTIONARY.add_entry({ en: 'to lose',es: 'A perder'})
+  DICTIONARY.add_entry({ en: 'to smile',es: 'sonreír'})
+  DICTIONARY.add_entry({ en: 'to laugh',es: 'reír'})
+  DICTIONARY.add_entry({ en: 'to cry',es: 'llorar'})
+  DICTIONARY.add_entry({ en: 'to buy',es: 'Comprar'})
+  DICTIONARY.add_entry({ en: 'to pay',es: 'pagar'})
+  DICTIONARY.add_entry({ en: 'to sell',es: 'para vender'})
+  DICTIONARY.add_entry({ en: 'to shoot a gun',es: 'para disparar un arma de fuego'})
+  DICTIONARY.add_entry({ en: 'to learn', es:'aprender'})
+  DICTIONARY.add_entry({ en: 'to jump',es: 'saltar'})
+  DICTIONARY.add_entry({ en: 'to smell',es: 'oler'})
+  DICTIONARY.add_entry({ en: 'to hear sound',es: 'para escuchar el sonido'})
+  DICTIONARY.add_entry({ en: 'to listen to music',es: 'escuchar música'})
+  DICTIONARY.add_entry({ en: 'to taste',es: 'probar'})
+  DICTIONARY.add_entry({ en: 'to touch',es: 'tocar'})
+  DICTIONARY.add_entry({ en: 'to see a bird',es: 'para ver un pájaro'})
+  DICTIONARY.add_entry({ en: 'to watch tv',es: 'ver la televisión'})
+  DICTIONARY.add_entry({ en: 'to kiss',es: 'para besar'})
+  DICTIONARY.add_entry({ en: 'to burn',es: 'para quemar'})
+  DICTIONARY.add_entry({ en: 'to melt',es: 'para fundir'})
+  DICTIONARY.add_entry({ en: 'to dig',es: 'cavar'})
+  DICTIONARY.add_entry({ en: 'to explode',es: 'explotar'})
+  DICTIONARY.add_entry({ en: 'to sit', es:'sentarse'})
+  DICTIONARY.add_entry({ en: 'to stand', es:'reposar'})
+  DICTIONARY.add_entry({ en: 'to love',es: 'amar'})
+  DICTIONARY.add_entry({ en: 'to pass by', es:'pasar por'})
+  DICTIONARY.add_entry({ en: 'to cut', es:'Para cortar'})
+  DICTIONARY.add_entry({ en: 'to fight',es: 'pelear'})
+  DICTIONARY.add_entry({ en: 'to lie down',es: 'tumbarse'})
+  DICTIONARY.add_entry({ en: 'to dance',es: 'bailar'})
+  DICTIONARY.add_entry({ en: 'to sleep',es: 'dormir'})
+  DICTIONARY.add_entry({ en: 'to wake up',es: 'Para despertar'})
+  DICTIONARY.add_entry({ en: 'to sing', es:'cantar'})
+  DICTIONARY.add_entry({ en: 'to count',es: 'para contar'})
+  DICTIONARY.add_entry({ en: 'to marry',es: 'casarse'})
+  DICTIONARY.add_entry({ en: 'to pray',es: 'a orar'})
+  DICTIONARY.add_entry({ en: 'to win',es: 'ganar'})
+  DICTIONARY.add_entry({ en: 'to lose',es: 'A perder'})
+  DICTIONARY.add_entry({ en: 'to mix/stir',es: 'mezclar / revuelo'})
+  DICTIONARY.add_entry({ en: 'to bend',es: 'para doblar'})
+  DICTIONARY.add_entry({ en: 'to wash',es: 'lavar'})
+  DICTIONARY.add_entry({ en: 'to cook',es: 'cocinar'})
+  DICTIONARY.add_entry({ en: 'to open',es: 'abrir'})
+  DICTIONARY.add_entry({ en: 'to close', es:'cerrar'})
+  DICTIONARY.add_entry({ en: 'to write',es: 'escribir'})
+  DICTIONARY.add_entry({ en: 'to call',es: 'llamar'})
+  DICTIONARY.add_entry({ en: 'to turn',es: 'girar'})
+  DICTIONARY.add_entry({ en: 'to build', es:'para construir'})
+  DICTIONARY.add_entry({ en: 'to teach',es: 'enseñar'})
+  DICTIONARY.add_entry({ en: 'to grow',es: 'crecer'})
+  DICTIONARY.add_entry({ en: 'to draw',es: 'dibujar'})
+  DICTIONARY.add_entry({ en: 'to feed', es:'Para alimentar'})
+  DICTIONARY.add_entry({ en: 'to catch', es:'atrapar'})
+  DICTIONARY.add_entry({ en: 'to throw',es: 'lanzar'})
+  DICTIONARY.add_entry({ en: 'to clean',es: 'limpiar'})
+  DICTIONARY.add_entry({ en: 'to find',es: 'encontrar'})
+  DICTIONARY.add_entry({ en: 'to fall',es: 'caer'})
+  DICTIONARY.add_entry({ en: 'to stumble',es: 'tropezar'})
+  DICTIONARY.add_entry({ en: 'to fall in love',es: 'para enamorarse'})
+  DICTIONARY.add_entry({ en: 'to push',es: 'para empujar'})
+  DICTIONARY.add_entry({ en: 'to pull',es: 'tirar'})
+  DICTIONARY.add_entry({ en: 'to carry',es: 'llevar'})
+  DICTIONARY.add_entry({ en: 'to break',es: 'romper'})
+  DICTIONARY.add_entry({ en: 'to wear',es: 'llevar'})
+  DICTIONARY.add_entry({ en: 'to hang',es: 'colgar'})
+  DICTIONARY.add_entry({ en: 'to shake',es: 'agitar'})
+  DICTIONARY.add_entry({ en: 'to sign',es: 'para firmar'})
+  DICTIONARY.add_entry({ en: 'to beat', es:'vencer'})
+  DICTIONARY.add_entry({ en: 'to lift',es: 'levantar'})
+  DICTIONARY.add_entry({ en: 'long',es: 'largo'})
+  DICTIONARY.add_entry({ en: 'short',es: 'corto y largo'})
+  DICTIONARY.add_entry({ en: 'tall',es: 'alto'})
+  DICTIONARY.add_entry({ en: 'short (vs tall)',es: 'corto (vs altura)'})
+  DICTIONARY.add_entry({ en: 'wide',es: 'amplio'})
+  DICTIONARY.add_entry({ en: 'narrow', es:'angostas'})
+  DICTIONARY.add_entry({ en: 'big - large',es: 'Muy grande'})
+  DICTIONARY.add_entry({ en: 'small - little',es: 'pequeña - pequeña'})
+  DICTIONARY.add_entry({ en: 'slow',es: 'lento'})
+  DICTIONARY.add_entry({ en: 'fast',es: 'ayunar'})
+  DICTIONARY.add_entry({ en: 'hot', es:'caliente'})
+  DICTIONARY.add_entry({ en: 'cold',es: 'frío'})
+  DICTIONARY.add_entry({ en: 'warm',es: 'calentar'})
+  DICTIONARY.add_entry({ en: 'cool',es: 'guay'})
+  DICTIONARY.add_entry({ en: 'new',es: 'nuevo'})
+  DICTIONARY.add_entry({ en: 'old - new',es: 'viejo nuevo'})
+  DICTIONARY.add_entry({ en: 'young',es: 'joven'})
+  DICTIONARY.add_entry({ en: 'young and old',es: 'joven y viejo'})
+  DICTIONARY.add_entry({ en: 'good',es: 'bien'})
+  DICTIONARY.add_entry({ en: 'bad',es: 'malo'})
+  DICTIONARY.add_entry({ en: 'wet',es: 'mojado'})
+  DICTIONARY.add_entry({ en: 'dry',es: 'seco'})
+  DICTIONARY.add_entry({ en: 'sick',es: 'enfermos'})
+  DICTIONARY.add_entry({ en: 'healthy',es: 'saludable'})
+  DICTIONARY.add_entry({ en: 'loud',es: 'ruidoso'})
+  DICTIONARY.add_entry({ en: 'quiet',es: 'tranquilo'})
+  DICTIONARY.add_entry({ en: 'happy',es: 'feliz'})
+  DICTIONARY.add_entry({ en: 'sad',es: 'triste'})
+  DICTIONARY.add_entry({ en: 'beautiful',es: 'hermosa'})
+  DICTIONARY.add_entry({ en: 'ugly',es: 'feo'})
+  DICTIONARY.add_entry({ en: 'cute',es: 'linda'})
+  DICTIONARY.add_entry({ en: 'deaf',es: 'sordo'})
+  DICTIONARY.add_entry({ en: 'blind',es: 'ciego'})
+  DICTIONARY.add_entry({ en: 'nice',es: 'bonito'})
+  DICTIONARY.add_entry({ en: 'mean',es: 'media'})
+  DICTIONARY.add_entry({ en: 'rich',es: 'Rico'})
+  DICTIONARY.add_entry({ en: 'poor',es: 'pobre'})
+  DICTIONARY.add_entry({ en: 'thick',es: 'grueso'})
+  DICTIONARY.add_entry({ en: 'thin',es: 'delgada'})
+  DICTIONARY.add_entry({ en: 'expensive',es: 'caro'})
+  DICTIONARY.add_entry({ en: 'cheap',es: 'barato'})
+  DICTIONARY.add_entry({ en: 'flat',es: 'llano'})
+  DICTIONARY.add_entry({ en: 'curved',es: 'curvo'})
+  DICTIONARY.add_entry({ en: 'male',es: 'masculino'})
+  DICTIONARY.add_entry({ en: 'female',es: 'hembra'})
+  DICTIONARY.add_entry({ en: 'tight',es: 'ajustado'})
+  DICTIONARY.add_entry({ en: 'loose',es: 'suelto'})
+  DICTIONARY.add_entry({ en: 'high',es: 'alto'})
+  DICTIONARY.add_entry({ en: 'low',es: 'bajo'})
+  DICTIONARY.add_entry({ en: 'soft', es:'suave'})
+  DICTIONARY.add_entry({ en: 'hard',es: 'difícil'})
+  DICTIONARY.add_entry({ en: 'deep', es:'profundo'})
+  DICTIONARY.add_entry({ en: 'shallow',es: 'superficial'})
+  DICTIONARY.add_entry({ en: 'clean', es:'limpiar'})
+  DICTIONARY.add_entry({ en: 'dirty', es:'sucio'})
+  DICTIONARY.add_entry({ en: 'strong',es: 'fuerte'})
+  DICTIONARY.add_entry({ en: 'weak',es: 'débiles'})
+  DICTIONARY.add_entry({ en: 'dead',es: 'muerto'})
+  DICTIONARY.add_entry({ en: 'alive',es: 'viva'})
+  DICTIONARY.add_entry({ en: 'heavy',es: 'pesado'})
+  DICTIONARY.add_entry({ en: 'lightweight',es: 'ligero'})
+  DICTIONARY.add_entry({ en: 'dark',es: 'oscuro'})
+  DICTIONARY.add_entry({ en: 'light color',es: 'color claro'})
+  DICTIONARY.add_entry({ en: 'nuclear',es: 'nuclear'})
+  DICTIONARY.add_entry({ en: 'famous',es: 'famoso'})
+  DICTIONARY.add_entry({ en: 'I',es: 'yo'})
+  DICTIONARY.add_entry({ en: 'you',es: 'usted'})
+  DICTIONARY.add_entry({ en: 'he', es:'él'})
+  DICTIONARY.add_entry({ en: 'she', es:'ella'})
+  DICTIONARY.add_entry({ en: 'it', es:'ello'})
+  DICTIONARY.add_entry({ en: 'we', es:'nosotros'})
+  DICTIONARY.add_entry({ en: 'all of you',es: 'Todos ustedes'})
+  DICTIONARY.add_entry({ en: 'they',es: 'ellos'})
+  DICTIONARY.add_entry({ en: 'What?',es: '¿Qué?'})
+  DICTIONARY.add_entry({ en: 'Which?',es: '¿Cual?'})
+  DICTIONARY.add_entry({ en: 'Where?',es: '¿Dónde?'})
+  DICTIONARY.add_entry({ en: 'Who?',es: '¿Quien?'})
+  DICTIONARY.add_entry({ en: 'Why?',es: '¿Por qué?'})
+  DICTIONARY.add_entry({ en: 'How?',es: '¿Cómo?'})
+  DICTIONARY.add_entry({ en: 'How Much?',es: '¿Cuánto cuesta?'})
+  DICTIONARY.add_entry({ en: 'How Many?',es: '¿Cuántos?'})
