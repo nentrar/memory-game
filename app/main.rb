@@ -103,8 +103,8 @@ def handle_match_timer(args)
 end
 
 def render_ui(args)
-  args.outputs.labels << [10, 700, "Boss HP: #{args.state.boss_life}", 15, 0, 0, 0, 0, 255]
-  args.outputs.labels << [950, 700, "Player HP: #{args.state.player_life}", 15, 0, 0, 0, 0, 255]
+  args.outputs.labels << [10, 700, "Matches: #{args.state.boss_life}", 15, 0, 0, 0, 0, 255]
+  args.outputs.labels << [1000, 700, "Chances: #{args.state.player_life}", 15, 0, 0, 0, 0, 255]
 
   if args.state.cards.all? { |c| c[:matched] }
     if args.state.boss_life > 0
