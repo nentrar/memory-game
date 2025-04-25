@@ -1,11 +1,14 @@
 require 'app/words.rb'
+require 'app/ui.rb'
 
 def tick(args)
-  args.state.active_scene ||= 'menu'
+  args.state.active_scene ||= 'options'
 
   case args.state.active_scene
   when 'menu'
     render_menu(args)
+  when 'options'
+    render_options(args)
   when 'game'
     args.state.boss_life ||= 100
     args.state.player_life ||= 10
@@ -170,4 +173,17 @@ end
 def next_round(args)
   args.state.selected_cards.clear
   args.state.init = false
+end
+
+def render_options(args)
+  return unless args.state.active_scene == 'options'
+  args.outputs.solids << [0, 0, args.grid.w, args.grid.h, 92, 120, 230]
+  rect = UI.align_rect(800, 400, anchor: :center)
+  options_box = rect + [0, 0, 0, 128]
+  args.outputs.solids << options_box
+  args.outputs.labels << UI.label_in_rect("Back", rect, anchor: :bottom, pad_y: 40)
+  
+  if args.inputs.mouse.click && args.inputs.mouse.point.inside_rect?([550, 350, 150, 50])
+    args.state.active_scene = 'menu'
+  end
 end
