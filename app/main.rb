@@ -182,7 +182,8 @@ def render_options(args)
   options_box = rect + [0, 0, 0, 128]
   args.outputs.solids << options_box
   args.outputs.labels << UI.label_in_rect("Back", rect, anchor: :bottom, pad_y: 40, align: 0)  
-  if args.inputs.mouse.click && args.inputs.mouse.point.inside_rect?([550, 350, 150, 50])
+
+  if args.inputs.mouse.click && args.inputs.mouse.point.inside_rect?(rect)
     args.state.active_scene = 'menu'
   end
 end
