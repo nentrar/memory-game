@@ -181,9 +181,15 @@ def render_options(args)
   rect = UI.align_rect(800, 400, anchor: :center)
   options_box = rect + [0, 0, 0, 128]
   args.outputs.solids << options_box
-  args.outputs.labels << UI.label_in_rect("Back", rect, anchor: :bottom, pad_y: 40, align: 0)  
 
-  if args.inputs.mouse.click && args.inputs.mouse.point.inside_rect?(rect)
+  back_label = UI.label_in_rect("Back", rect, anchor: :bottom, pad_y: 40, align: 0)
+  lang_label = UI.label_in_rect("Language", rect, anchor: :top_left, pad_x: 20, align: 0)
+  english_label = UI.label_in_rect("English", rect, anchor: :top_right, pad_x: 20, align: 0)
+  args.outputs.labels << back_label[:label]
+  args.outputs.labels << lang_label[:label]
+  args.outputs.labels << english_label[:label]
+
+  if args.inputs.mouse.click && args.inputs.mouse.point.inside_rect?(back_label[:rect])
     args.state.active_scene = 'menu'
   end
 end

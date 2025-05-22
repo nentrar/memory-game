@@ -65,19 +65,24 @@ module UI
   
     def self.label_in_rect(text, rect, opts = {})
       size   = opts[:size] || 2
-      align  = opts[:align] || 1
+      align  = opts[:align] || 0  
       color  = opts[:color] || [255, 255, 255]
       anchor = opts[:anchor] || :center
       pad_x  = opts[:pad_x] || 0
       pad_y  = opts[:pad_y] || 0
-  
+
       char_w = size * 10 * 0.6
       w = text.length * char_w
       h = size * 10
-  
+
       x, y, *_ = align_in_rect(rect, w, h, anchor: anchor, pad_x: pad_x, pad_y: pad_y)
-      [x, y, text, size, align, *color]
+
+      label = [x, y, text, size, align, *color]
+      label_rect = [x - (align == 0 ? w/2 : 0), y, w, h]
+
+      { label: label, rect: label_rect }
     end
+
   
     def self.button(text, opts = {})
       size         = opts[:size] || 2
