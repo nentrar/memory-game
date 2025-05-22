@@ -31,6 +31,15 @@ The game is in its initial release version with core gameplay implemented.
 - 🌍 **Language options** — ability to switch game UI to Spanish.
 - 🎨 **Visual improvements** — small updates to graphics and polish.
 
+## 🚀 Getting Started
+
+No setup needed — just download and run the `.exe` file included in the release!
+
+1. Download the latest release from the [Releases](./releases) section.
+3. Double-click the `.exe` / `.bin` to start playing.
+
+Works on Windows and Linux. No Ruby or DragonRuby installation required.
+
 ## 🤔 Why This Exists
 
 Honestly? I'm learning Spanish myself — and a lot of flashcard apps out there are either behind a paywall or limited. So I thought: _why not build my own and learn some Ruby/DragonRuby along the way?_ 😄
