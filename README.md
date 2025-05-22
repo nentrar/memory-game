@@ -35,7 +35,7 @@ The game is in its initial release version with core gameplay implemented.
 
 No setup needed — just download and run the `.exe` file included in the release!
 
-1. Download the latest release from the [Releases](./releases) section.
+1. Download the latest release from the [Releases](https://github.com/nentrar/memory-game/releases) section.
 3. Double-click the `.exe` / `.bin` to start playing.
 
 Works on Windows and Linux. No Ruby or DragonRuby installation required.
